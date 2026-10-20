@@ -36,10 +36,10 @@ def banner(host, port, timeout):
     """Muestra la cabecera con el estilo de consola de la referencia."""
     print(
         paint(
-            Neon.MAGENTA,
+            Neon.RED,
             rf"""
 ╔══════════════════════════════════════════════════════════════╗
-║                  {HOST_LABEL}                  ║
+║                    {HOST_LABEL}                  ║
 ╚══════════════════════════════════════════════════════════════╝
 """,
         )
@@ -63,7 +63,7 @@ def result(ok, text):
 def ask_email(label):
     """Solicita y valida una dirección de correo básica."""
     while True:
-        address = input(paint(Neon.CYAN, f"│ {label}: ")).strip()
+        address = input(paint(Neon.WHITE, f"│ {label}: ")).strip()
         _, parsed = parseaddr(address)
         if parsed and "@" in parsed and not parsed.startswith("@") and not parsed.endswith("@"):
             return parsed
