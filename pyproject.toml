@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "stalwart-sender"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "colorama>=0.4.6",
+]
+
+[project.scripts]
+stalwart-sender = "stalwart_sender.stalwart_sender:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+extend-select = ["I"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.14",
+]
